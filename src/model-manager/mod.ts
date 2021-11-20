@@ -1,24 +1,21 @@
-import { Application, Database, path } from "../deps.ts";
-import { getConfig } from "../utils/configer.ts";
-import { isIgnoreError } from "../utils/mod.ts";
+import { Application, Database, path } from '../deps.ts';
+import { getConfig } from '../utils/configer.ts';
+import { isIgnoreError } from '../utils/mod.ts';
 
 export async function initModel(app: Application, appPath: string) {
-  const {
-    databaseUri,
-    databaseName,
-  } = await getConfig();
+  const { databaseUri, databaseName } = await getConfig();
 
   if (!databaseUri || !databaseName) {
     return;
   }
 
-  const db = new Database("mongo", {
+  const db = new Database('mongo', {
     uri: databaseUri,
     database: databaseName,
   });
 
   try {
-    const modelPath = path.join(appPath, "models");
+    const modelPath = path.join(appPath, 'models');
 
     app.state.models = app.state.models || {};
     const list = [];
@@ -26,9 +23,10 @@ export async function initModel(app: Application, appPath: string) {
       if (!file || !file.name) {
         continue;
       }
-      if (file.name.indexOf("ts") > -1) {
-        const model =
-          (await import(path.join("file://" + modelPath, file.name))).model;
+      if (file.name.indexOf('ts') > -1) {
+        const model = (
+          await import(path.join('file://' + modelPath, file.name))
+        ).model;
         app.state.models[model.table] = model;
         list.push(model);
       }
@@ -37,10 +35,10 @@ export async function initModel(app: Application, appPath: string) {
     try {
       await db.sync();
     } catch (e) {
-      console.warn("db sync error:", e);
+      console.warn('db sync error:', e);
     }
   } catch (e) {
     if (isIgnoreError(e)) return;
-    console.error("Set models Fail!", e);
+    console.error('Set models Fail!', e);
   }
 }
