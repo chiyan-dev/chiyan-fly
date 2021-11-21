@@ -1,5 +1,5 @@
 import { Application, ld, path, Router } from '../../deps.ts';
-import { ICtrl } from '../common/mod.ts';
+import { Controller } from '../common/mod.ts';
 import { isIgnoreError } from '../utils/mod.ts';
 
 const SUPPORT_METHOD_LIST = [
@@ -23,7 +23,7 @@ export function initRouters(app: Application, router: Router, appPath: string) {
       }
       if (file.name.indexOf('ts') > -1) {
         import(path.join('file://', routerPath, file.name)).then(
-          ({ controller }: { controller: ICtrl }) => {
+          ({ controller }: { controller: Controller }) => {
             if (!controller.router) {
               throw new Error('Not set router!');
             }

@@ -1,9 +1,9 @@
 import { path } from '../../deps.ts';
-import { IConfig } from '../common/mod.ts';
+import { Config } from '../common/mod.ts';
 
-let config: IConfig;
+let config: Config;
 
-export const getConfig = async (): Promise<IConfig> => {
+export const getConfig = async (): Promise<Config> => {
   const appPath = window.APP_PATH;
   const configPathOfEnv = Deno.env.get('CF_CONFIG');
   const configPath = configPathOfEnv

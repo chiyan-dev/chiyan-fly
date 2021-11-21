@@ -1,8 +1,11 @@
-import { Context } from 'https://static.x21.xyz/modules/chiyan/chiyan-fly/0.1.0/deps.ts';
+import {
+  Context,
+  Controller,
+} from 'https://static.x21.xyz/modules/chiyan/chiyan-fly/0.1.0/mod.ts';
 
-export const controller = {
+export const controller: Controller = {
   router: '/',
   get: (ctx: Context) => {
-    ctx.response.body = 'index page';
+    ctx.response.body = 'Hello word!';
   },
 };

@@ -13,8 +13,7 @@ export async function start(appPath: string, port?: number) {
   const configs = await getConfig();
   port = port || configs.port || defaultPort;
 
-  initRouters(app, router, appPath);
-
+  await initRouters(app, router, appPath);
   await initMiddleware(app, appPath);
   app.use(oakCors(configs.corsOptions));
   app.use(router.routes());

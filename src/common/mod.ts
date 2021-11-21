@@ -1,6 +1,6 @@
 import { Context, CorsOptions } from '../../deps.ts';
 
-export interface ICtrl {
+export interface Controller {
   router: string;
   get?: (ctx: Context) => void;
   post?: (ctx: Context) => void;
@@ -12,7 +12,7 @@ export interface ICtrl {
   all?: (ctx: Context) => void;
 }
 
-export interface IConfig {
+export interface Config {
   port?: number;
   corsOptions?: CorsOptions;
 }
