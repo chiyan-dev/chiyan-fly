@@ -1,4 +1,4 @@
-import { Context, CorsOptions, Model } from "../deps.ts";
+import { Context, CorsOptions } from '../../deps.ts';
 
 export interface ICtrl {
   router: string;
@@ -12,11 +12,9 @@ export interface ICtrl {
   all?: (ctx: Context) => void;
 }
 
-export type IModel = Model;
-
-export interface Iconfig {
-  databaseUri: string;
-  databaseName?: string;
+export interface IConfig {
   port?: number;
   corsOptions?: CorsOptions;
 }
+
+export * from '../../deps.ts';

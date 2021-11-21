@@ -1,4 +1,4 @@
-import { Application, path } from '../deps.ts';
+import { Application, path } from '../../deps.ts';
 import { isIgnoreError } from '../utils/mod.ts';
 
 export async function initMiddleware(app: Application, appPath: string) {
