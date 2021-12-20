@@ -4,7 +4,7 @@
   "description": "A simple, fast, and powerful web framework for deno",
   "scripts": {
     "start": {
-      "cmd": "deno run -A --unstable ./bin/mod.ts start ./test/demo",
+      "cmd": "deno run -A --unstable ./bin/chiyan-fly.ts start ./test/demo",
       "desc": "run demo",
       "watch": true
     }

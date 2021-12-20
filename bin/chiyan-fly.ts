@@ -1,5 +1,3 @@
-// deno run --inspect-brk --allow-net --allow-read --allow-write --allow-plugin --unstable
-
 import { Denomander } from '../deps.ts';
 import { start } from '../src/mod.ts';
 

@@ -1,7 +1,7 @@
 import {
   Context,
   Controller,
-} from 'https://static.x21.xyz/modules/chiyan/chiyan-fly/0.1.0/mod.ts';
+} from '../../../mod.ts';
 
 export const controller: Controller = {
   router: '/',

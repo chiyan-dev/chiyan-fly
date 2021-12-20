@@ -33,7 +33,7 @@ export function initRouters(app: Application, router: Router, appPath: string) {
               if (method) {
                 if (ld.isArrayLike(method)) {
                   // deno-lint-ignore no-explicit-any
-                  router[key as 'get'](controller.router, ...(method as any));
+                  router[key as 'get'](controller.router, ...(method as unknown as [any, any]));
                 } else {
                   router[key as 'get'](controller.router, method);
                 }
