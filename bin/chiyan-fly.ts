@@ -1,7 +1,9 @@
-import { Denomander } from '../deps.ts';
-import { start } from '../src/mod.ts';
+import { Denomander } from "../deps.ts";
+import { start } from "../src/mod.ts";
 
-const appConfig = JSON.parse(Deno.readTextFileSync('./denon.json'));
+const appConfig = JSON.parse(Deno.readTextFileSync("../denon.json"));
+
+console.log("appConfig", appConfig);
 
 const program = new Denomander({
   app_name: appConfig.name,
@@ -10,12 +12,12 @@ const program = new Denomander({
 });
 
 program
-  .command('start [dir]', 'start')
-  .option('-p, --port ', 'Listen on port')
+  .command("start [dir]", "start")
+  .option("-p, --port ", "Listen on port")
   .parse(Deno.args);
 
 const realDir = await Deno.realPath(program.dir);
 
-console.log('Start app: ', realDir);
+console.log("Start app: ", realDir);
 
 start(realDir, program.port);

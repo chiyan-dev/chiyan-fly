@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "name": "chiyan-fly",
   "description": "A simple, fast, and powerful web framework for deno",
   "scripts": {

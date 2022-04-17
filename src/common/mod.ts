@@ -1,4 +1,4 @@
-import { Context, CorsOptions } from '../../deps.ts';
+import { Context, CorsOptions } from "../../deps.ts";
 
 export interface Controller {
   router: string;
@@ -15,6 +15,7 @@ export interface Controller {
 export interface Config {
   port?: number;
   corsOptions?: CorsOptions;
+  hostname?: string;
 }
 
-export * from '../../deps.ts';
+export * from "../../deps.ts";
