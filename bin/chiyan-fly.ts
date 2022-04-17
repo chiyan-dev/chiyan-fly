@@ -1,9 +1,7 @@
 import { Denomander } from "../deps.ts";
 import { start } from "../src/mod.ts";
 
-const appConfig = JSON.parse(
-  Deno.readTextFileSync(await Deno.realPath("../denon.json")),
-);
+import appConfig from "../denon.json" assert { type: "json" };
 
 const program = new Denomander({
   app_name: appConfig.name,
